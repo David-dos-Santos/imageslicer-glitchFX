@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>Glitch FX - Image</title>
+
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    
+	<!--------------------------------------------------->
+    
+	<div id = "conteneur-image" class = "overflow-hidden">
+        <img src = "https://picsum.photos/800/600">
+    </div>
+    
+    <!--------------------------------------------------->
+    
+    
+	<script type="text/javascript" src="image-slicer.js"></script>
+    
+    <script>
+        
+        var image_a_traiter = document.querySelector("#conteneur-image img");
+    
+        window.onload = function(){
+
+            setInterval( function(){
+                
+            var tranches = slice_image( image_a_traiter , 20 , 200 , 3 , 7 );
+        
+            for (var i = 0; i < tranches.length; i++) {
+                
+                var une_tranche = tranches[i];
+                
+                ///////// Pour chaque tranche (plein de choses sont faisables) /////////
+                
+                var desaturation = 25 + Math.round(Math.random() * 50);
+            
+                var flou = Math.random() * 2;
+            
+                une_tranche.style.filter = "grayscale(" + desaturation + "%) blur(" + flou + "px)";
+                
+                
+                ////////////////////////////////////////////////////////////////////////
+                
+                }
+                
+                setTimeout( function(){
+                    destroy_slices(tranches);
+                } , 90 );
+        
+            } , 100 );
+            
+        }
+    
+    </script>
+    
+</body>
+
+</html>

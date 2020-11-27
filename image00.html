@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>Glitch FX - Image</title>
+
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    
+    <!-- Le HTML : l'image à traiter doit être dans un conteneur,
+         et ce conteneur doit avoir position:relative
+         pour permettre le positionnement absolu des tranches -->
+    
+	<div id = "conteneur-image">
+        <img src = "https://picsum.photos/800/600">
+    </div>
+    
+    <!---------------------------------------------------------->
+    
+	<script type="text/javascript" src="image-slicer.js"></script>
+    
+    
+    <!-- Tests spécifiques à cette page
+         (utilisant les fonctions fournies par image-slicer.js) : -->
+    
+    <script>
+        
+        var image_a_traiter = document.querySelector("#conteneur-image img");
+    
+        window.onload = function(){ // Il faut attendre le chargement pour que la taille de l'image soit disponible
+
+            // Test 1 : créer une tranche de l'image à 100px de haut, mesurant 100px de haut
+            var tranche_test_1 = clone_slice( image_a_traiter , 100 , 100 );
+                
+            // Pour la rendre visible, on peut lui donner par exemple une bordure
+            tranche_test_1.style.border = "1px solid red";
+            tranche_test_1.innerHTML = "Tranche 1";
+                
+            // Test 2 : créer une seconde tranche, positionnée aléatoirement, pouvant mesurer entre 50 et 200px de haut
+            var tranche_test_2 = random_clone_slice( image_a_traiter , 50 , 200 );
+            
+            tranche_test_2.style.border = "1px solid yellow";
+            tranche_test_2.innerHTML = "Tranche 2";
+                
+            // Pour mettre en valeur les tranches-test, on peut réduire l'opacité de l'image de base
+            image_a_traiter.style.opacity = "0.65";
+            
+        }
+    
+    
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>Glitch FX - Image</title>
+
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    
+    <!-- À partir de cet exemple, le conteneur a également la propriété overflow:hidden
+         permettant que les tranches, si on les décale, ne dépassent pas de l'image -->
+    
+	<div id = "conteneur-image" class = "overflow-hidden">
+        <img src = "https://picsum.photos/800/600">
+    </div>
+    
+    <!-------------------------------------------------------------------------------->
+    
+    
+	<script type="text/javascript" src="image-slicer.js"></script>
+    
+    <script>
+        
+        var image_a_traiter = document.querySelector("#conteneur-image img");
+    
+        window.onload = function(){
+
+        var tranches = slice_image( image_a_traiter , 20 , 100 , 5 , 10 );
+    
+        for (var i = 0; i < tranches.length; i++) {
+            
+            var une_tranche = tranches[i];
+            
+            ///////// Pour chaque tranche (plein de choses sont faisables) /////////
+            
+            var marge = Math.round(Math.random() * 50);
+            
+            if (Math.random() > 0.5) {
+                marge *= -1;
+            }
+            
+            une_tranche.style.left = marge + "px";
+            
+            
+            ////////////////////////////////////////////////////////////////////////
+            
+        }
+    
+    }
+    
+    </script>
+    
+</body>
+
+</html>

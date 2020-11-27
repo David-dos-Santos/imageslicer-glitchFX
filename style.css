@@ -1,0 +1,18 @@
+body {
+    margin:0;
+    height:100vh;
+    display:flex; align-items:center; justify-content:center;
+}
+
+#conteneur-image {
+    width:800px;
+    position:relative;
+}
+
+#conteneur-image.overflow-hidden {
+    overflow:hidden;
+}
+
+#conteneur-image img {
+    width:100%;
+}
